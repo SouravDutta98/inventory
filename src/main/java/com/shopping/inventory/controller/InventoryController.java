@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/inventory")
 public class InventoryController {
@@ -29,7 +29,7 @@ public class InventoryController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public InventoryDTO addProduct(@RequestBody InventoryDTO productDTO) {
         return inventoryService.addProduct(productDTO);
     }
